@@ -1,0 +1,20 @@
+﻿using UnityEngine;
+using UnityEditor;
+using NUnit.Framework;
+
+public class #SCRIPTNAME# {
+    private GameObject subject;
+
+    [SetUp]
+    public void Init() {
+        subject = new GameObject();
+    }
+
+    [Test]
+    public void EditorTest() {
+        string newGameObjectName = "My game object";
+        subject.name = newGameObjectName;
+
+        Assert.AreEqual(newGameObjectName, subject.name);
+    }
+}
