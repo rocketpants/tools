@@ -26,3 +26,14 @@ will use Google Translate in non English markets. That is usually not a good
 solution. One solution is to populate all translations with the English texts.
 
 The code in `google-translations.js` automates this.
+
+
+## Unity script templates for C#
+The C# templates are mostly to save some time when creating new script files.
+At the moment the built in ones use tabs and some strange spacing rules, our
+code style dictates 4 spaces and civilized spacing.
+
+After updating Unity they will need to be copied into this folder again:
+```
+/Applications/Unity/Unity.app/Contents/Resources/ScriptTemplates
+```
