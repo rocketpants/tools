@@ -28,7 +28,7 @@ solution. One solution is to populate all translations with the English texts.
 The code in `google-translations.js` automates this.
 
 
-## Unity script templates for C#
+## Unity script templates for C# #
 The C# templates are mostly to save some time when creating new script files.
 At the moment the built in ones use tabs and some strange spacing rules, our
 code style dictates 4 spaces and civilized spacing.
@@ -37,3 +37,8 @@ After updating Unity they will need to be copied into this folder again:
 ```
 /Applications/Unity/Unity.app/Contents/Resources/ScriptTemplates
 ```
+
+Quick note about the `C# Editor Script` template. When creating this template
+you should initially give it the name of the Class that it is an Editor for,
+once it has been created you can append the word Editor to the end of the file
+name. This is so that the template can include more boilerplate code.
