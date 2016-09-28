@@ -4,13 +4,20 @@ using System.Collections;
 public class Screenshot : MonoBehaviour {
     public int width = 1920;
     public int height = 1080;
-    public string path = Application.dataPath;
+    public string path = "";
     public string fileName = "screenshot";
 
     private bool takeScreenshot = false;
+    private string ScreenshotPath {
+        get {
+            return string.Format("{0}/{1}.png", path, fileName);
+        }
+    }
 
-    public string ScreenshotPath() {
-        return string.Format("{0}/{1}.png", path, fileName);
+    public void Awake() {
+        if (path == "") {
+            path = Application.dataPath;
+        }
     }
 
     public void TakeScreenshot() {
@@ -37,7 +44,7 @@ public class Screenshot : MonoBehaviour {
             RenderTexture.active = null; // JC: added to avoid errors
             DestroyImmediate(rt);
             byte[] bytes = screenShot.EncodeToPNG();
-            string filePath = ScreenshotPath();
+            string filePath = ScreenshotPath;
             System.IO.File.WriteAllBytes(filePath, bytes);
             Debug.Log(string.Format("Screenshot saved to {0}", filePath));
             takeScreenshot = false;
