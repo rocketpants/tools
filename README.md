@@ -19,6 +19,11 @@ ffmpeg -framerate 6 -i scaled_%02d.png -s:v 640x640 -c:v libx264 -profile:v high
 ffmpeg -i input.mp4 -c:v libx264 -c:a aac -strict experimental -b:a 96k out.mp4
 ```
 
+### Resize multiple images without scaling them.
+```
+mogrify *.png -background none -gravity south -extent 20x40 *.png
+```
+
 
 ## Google Play translations
 If you don't provide translations for the app description on Google Play it
