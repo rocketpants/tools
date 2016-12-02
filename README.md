@@ -24,6 +24,14 @@ ffmpeg -i input.mp4 -c:v libx264 -c:a aac -strict experimental -b:a 96k out.mp4
 mogrify *.png -background none -gravity south -extent 20x40 *.png
 ```
 
+### Offset a bunch of images inside their canvas.
+```
+mogrify -page -3-3 -background none -flatten *.png
+mogrify -page -3-3 -background none -flatten char4_idle_*.png
+mogrify -page -3-3 -background none -flatten char4_walking_*.png
+mogrify -page -3-3 -background none -flatten char4_wave_*.png
+```
+
 
 ## Google Play translations
 If you don't provide translations for the app description on Google Play it
