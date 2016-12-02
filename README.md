@@ -46,9 +46,9 @@ The C# templates are mostly to save some time when creating new script files.
 At the moment the built in ones use tabs and some strange spacing rules, our
 code style dictates 4 spaces and civilized spacing.
 
-After updating Unity they will need to be copied into this folder again:
+After updating Unity they will need to be copied into Unity again:
 ```
-/Applications/Unity/Unity.app/Contents/Resources/ScriptTemplates
+cp unity_templates/* /Applications/Unity/Unity.app/Contents/Resources/ScriptTemplates
 ```
 
 Quick note about the `C# Editor Script` template. When creating this template
