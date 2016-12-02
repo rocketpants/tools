@@ -47,10 +47,3 @@ Quick note about the `C# Editor Script` template. When creating this template
 you should initially give it the name of the Class that it is an Editor for,
 once it has been created you can append the word Editor to the end of the file
 name. This is so that the template can include more boilerplate code.
-
-
-## Screenshot
-A simple script for taking screenshots at a specific resolution. Simply add the
-script to a GameObject in your scene. You can take screenshots by hitting `k`
-in play mode or pressing the `Take screenshot` button in the editor.
-
