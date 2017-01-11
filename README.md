@@ -24,6 +24,11 @@ ffmpeg -i input.mp4 -c:v libx264 -c:a aac -strict experimental -b:a 96k out.mp4
 mogrify *.png -background none -gravity south -extent 20x40 *.png
 ```
 
+### Crop image to specific coordinates.
+```
+mogrify *.png -crop 10x10+32+32 +repage *.png
+```
+
 ### Offset a bunch of images inside their canvas.
 ```
 mogrify -page -3-3 -background none -flatten *.png
