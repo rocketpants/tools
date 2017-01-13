@@ -82,3 +82,11 @@ makes a bunch of assumptions about the project structure:
 * There is a file called `VERSION.txt` in the root which only contains the
 version number.
 * There is a directory called `UnityPackages` in the root of the project.
+
+
+## About Rocket Pants
+![Rocket Pants](http://rocketpants.se/logo_xsmall.png)
+
+Rocket Pants is a small indie game studio based in Stockholm. If you like this
+tool please consider supporting us by checking out our games. Find out more at
+[rocketpants.se](http://rocketpants.se).
