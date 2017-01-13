@@ -60,3 +60,25 @@ Quick note about the `C# Editor Script` template. When creating this template
 you should initially give it the name of the Class that it is an Editor for,
 once it has been created you can append the word Editor to the end of the file
 name. This is so that the template can include more boilerplate code.
+
+
+## Unity project files
+Copy the contents of the `unity_project` or `unity_plugin_project` into your
+brand new project just before you run `git init`.
+
+### Game projects
+It's rather nice to keep the examples from plugin projects but you certainly
+don't want them in the build. One way of doing this is by storing the files
+outside of the `Assets` directory and using symbolic links to add them.
+The `mk_examples.sh` and `rm_examples.sh` create and delete this symbolic link.
+The idea is to remove the link before building and adding it again when you
+need access to the examples.
+
+### Plugin projects
+The `export_package.sh` script is used for exporting `.unitypackage` files. It
+makes a bunch of assumptions about the project structure:
+
+* All files to be included in the package are under `Assets/RocketPants`.
+* There is a file called `VERSION.txt` in the root which only contains the
+version number.
+* There is a directory called `UnityPackages` in the root of the project.
