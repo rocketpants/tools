@@ -22,3 +22,8 @@ sysinfo.txt
 
 # Unity3D test results
 EditorTestResults.xml
+
+# External files
+Assets/External.meta
+External/Examples
+External/Examples

@@ -1,4 +1,4 @@
-# Rocket Pants Tools
+
 A collection of scripts and tools that we made to help us in our daily work.
 
 
@@ -70,9 +70,12 @@ brand new project just before you run `git init`.
 It's rather nice to keep the examples from plugin projects but you certainly
 don't want them in the build. One way of doing this is by storing the files
 outside of the `Assets` directory and using symbolic links to add them.
-The `mk_examples.sh` and `rm_examples.sh` create and delete this symbolic link.
-The idea is to remove the link before building and adding it again when you
-need access to the examples.
+
+The `mk_external.sh` and `rm_external.sh` create and delete a symbolic link to
+a directory called `External` in the root of the project. Store examples and
+any other files you want access to during development but don't want in your
+builds. The idea is to remove the link before building and adding it again when
+you need access to the files in the Unity editor.
 
 ### Plugin projects
 The `export_package.sh` script is used for exporting `.unitypackage` files. It
