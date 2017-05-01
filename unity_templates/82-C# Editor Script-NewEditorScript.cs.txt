@@ -3,10 +3,17 @@ using UnityEditor;
 
 [CustomEditor(typeof(#SCRIPTNAME#))]
 public class #SCRIPTNAME#Editor : Editor {
+    private #SCRIPTNAME# subject {
+        get {
+            return (#SCRIPTNAME#)target;
+        }
+    }
+
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
+	EditorGUILayout.Space();
 
-        #SCRIPTNAME# subject = (#SCRIPTNAME#)target;
+        EditorGUILayout.LabelField("Custom");
         if (GUILayout.Button("My button")) {
             // Do something.
         }
