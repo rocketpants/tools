@@ -1,0 +1,16 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class #SCRIPTNAME# : IInteractionCommand {
+    public void Interact(GameObject target) {
+        // Do something
+    }
+
+    public bool Enabled(GameObject target) {
+        return true;
+    }
+
+    public bool Visible(GameObject target) {
+        return true;
+    }
+}

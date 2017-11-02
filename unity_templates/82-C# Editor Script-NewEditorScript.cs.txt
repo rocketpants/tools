@@ -11,7 +11,7 @@ public class #SCRIPTNAME#Editor : Editor {
 
     public override void OnInspectorGUI() {
         DrawDefaultInspector();
-	EditorGUILayout.Space();
+        EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Custom");
         if (GUILayout.Button("My button")) {
