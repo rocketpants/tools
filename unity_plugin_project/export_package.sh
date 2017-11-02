@@ -1,6 +1,6 @@
 UNITY_PATH="/Applications/Unity/Unity.app/Contents/MacOS/Unity"
 PROJECT_PATH="$(pwd)"
-BUILD_PATH="$PROJECT_PATH/UnityPackages"
+BUILD_PATH="$PROJECT_PATH/Build"
 LOG_PATH="$PROJECT_PATH/Temp/export_package_log.txt"
 NAME="$(basename `pwd`)"
 VERSION="$(cat VERSION.txt)"
