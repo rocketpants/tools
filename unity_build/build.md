@@ -84,10 +84,18 @@ this to a location outside of Dropbox since it generates a huge amount of files
 that you don't want to be syncing.
 
 ### Build
-First add a `Invoke Unity3d Editor` build step with the correct Unity
+If you want to group your builds in their own directories (and we do) use the following 
+shell script as the first build step:
+```
+#!/bin/bash -l
+
+mkdir -p ${OutputPath}/GameName-${BUILD_NUMBER}
+```
+
+Next add a `Invoke Unity3d Editor` build step with the correct Unity
 installation. The command line arguments are as follows:
 ```
--quit -batchmode -logFile "$WORKSPACE/unity3d_editor.log" -executeMethod CustomBuildScript.$BuildMethod $OutputPath
+-quit -batchmode -logFile "$WORKSPACE/unity3d_editor.log" -executeMethod CustomBuildScript.$BuildMethod "$OutputPath/GameName-${BUILD_NUMBER}"
 ```
 
 Next add a `Conditional step (single)` build step and set it to `Strings match`.
@@ -99,7 +107,18 @@ is part of Fastlane. Add the following shell script:
 ```
 #!/bin/bash -l
 
-echo "Running gym..."
-gym -p ${OutputPath}/game-name-ios/Unity-iPhone.xcodeproj -o ${OutputPath} -n game-name-ios.ipa
+gym -p ${OutputPath}/GameName-${BUILD_NUMBER}/iOS/Unity-iPhone.xcodeproj -o ${OutputPath}/GameName-${BUILD_NUMBER}/iOS -n GameName.ipa
 ```
 
+Next add another `Conditional step (single)` build step and set it to `Strings match`.
+Compare the `${BuildMethod}` variable to the string `PerformWindowsBuild`. For 
+Windows we want to copy in the readme file and zip it up. This script takes care of that:
+
+```
+#!/bin/bash -l
+
+cp ${WORKSPACE}/readme.txt ${OutputPath}/LDE-${BUILD_NUMBER}/Windows/GameName
+
+cd ${OutputPath}/GameName-${BUILD_NUMBER}/Windows
+zip ./GameName.zip -x \*.DS_Store -r ./GameName
+```
