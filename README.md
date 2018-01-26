@@ -12,6 +12,17 @@ convert -sample 640x640 sprite_**.png scaled_%02d.png
 ### Make an mp4 out of a series of png files.
 ```
 ffmpeg -framerate 6 -i scaled_%02d.png -s:v 640x640 -c:v libx264 -profile:v high -crf 18 -pix_fmt yuv420p out.mp4
+
+ffmpeg -start_number 0 -framerate 30 -i images/input_%04d.png -s:v 1920x1080 -c:v libx264 -profile:v high -crf 18 -pix_fmt yuv420p -vf vflip output.mp4
+
+ffmpeg -start_number 0 -framerate 30 -i images/input_%04d.png -s:v 1080x1080 -c:v libx264 -profile:v high -crf 18 -pix_fmt yuv420p -vf vflip output.mp4
+
+// Add -vframes 300 after -i to decide how many frames to encode.
+```
+
+### Crop a 1080p video to 1:1 aspect ratio
+```
+ffmpeg -i input.mp4 -filter:v "crop=1080:1080:420:0" -c:a copy output.mp4
 ```
 
 ### Compress video using x264 and aac.
@@ -35,6 +46,12 @@ mogrify -page -3-3 -background none -flatten *.png
 mogrify -page -3-3 -background none -flatten char4_idle_*.png
 mogrify -page -3-3 -background none -flatten char4_walking_*.png
 mogrify -page -3-3 -background none -flatten char4_wave_*.png
+```
+
+
+## Zip pre-release PC build
+```
+zip output.zip -x \*.DS_Store -r input
 ```
 
 
