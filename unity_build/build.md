@@ -84,12 +84,18 @@ this to a location outside of Dropbox since it generates a huge amount of files
 that you don't want to be syncing.
 
 ### Build
-If you want to group your builds in their own directories (and we do) use the following 
-shell script as the first build step:
+If you want to group your builds in their own directories (and we do) use the
+following shell script as the first build step:
 ```
 #!/bin/bash -l
 
 mkdir -p ${OutputPath}/GameName-${BUILD_NUMBER}
+```
+
+If the project uses Anima2D we need to add an extra Unity step with the
+following arguments:
+```
+-quit -batchmode -executeMethod Anima2D.SpriteMeshPostprocessor.Initialize
 ```
 
 Next add a `Invoke Unity3d Editor` build step with the correct Unity
@@ -110,9 +116,10 @@ is part of Fastlane. Add the following shell script:
 gym -p ${OutputPath}/GameName-${BUILD_NUMBER}/iOS/Unity-iPhone.xcodeproj -o ${OutputPath}/GameName-${BUILD_NUMBER}/iOS -n GameName.ipa
 ```
 
-Next add another `Conditional step (single)` build step and set it to `Strings match`.
-Compare the `${BuildMethod}` variable to the string `PerformWindowsBuild`. For 
-Windows we want to copy in the readme file and zip it up. This script takes care of that:
+Next add another `Conditional step (single)` build step and set it to
+`Strings match`.  Compare the `${BuildMethod}` variable to the string
+`PerformWindowsBuild`. For Windows we want to copy in the readme file and zip
+it up. This script takes care of that:
 
 ```
 #!/bin/bash -l
