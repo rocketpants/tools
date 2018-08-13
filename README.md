@@ -71,6 +71,7 @@ code style dictates 4 spaces and civilized spacing.
 After updating Unity they will need to be copied into Unity again:
 ```
 cp unity_templates/* /Applications/Unity/Unity.app/Contents/Resources/ScriptTemplates
+cp unity_templates/* /mnt/c/Program\ Files/Unity/Editor/Data/Resources/ScriptTemplates
 ```
 
 Quick note about the `C# Editor Script` template. When creating this template
