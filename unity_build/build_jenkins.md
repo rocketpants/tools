@@ -1,4 +1,4 @@
-# Build pipeline
+# Build pipeline Jenkins [DEPRECATED]
 Since our pipeline is based on Jenkins there isn't a great way of keeping track
 of it in case it has to be setup again. This document aims to capture the
 process of setting up our build system.
