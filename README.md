@@ -48,6 +48,16 @@ mogrify -page -3-3 -background none -flatten char4_walking_*.png
 mogrify -page -3-3 -background none -flatten char4_wave_*.png
 ```
 
+### Trim a video without re-encoding it.
+```
+ffmpeg -ss 00:00:03.000 -t 00:00:08.000 -y -i in.mp4 -map 0:v -c:v copy -map 0:a -c:a copy out.mp4
+```
+
+### Convert a video to an animated GIF.
+More info about this approach including other dithering modes: http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
+```
+sh ./video_to_gif.sh input.mp4 output.gif
+```
 
 ## Zip pre-release PC build
 ```
