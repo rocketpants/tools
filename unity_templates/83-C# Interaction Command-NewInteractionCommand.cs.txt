@@ -6,6 +6,10 @@ public class #SCRIPTNAME# : IInteractionCommand {
         // Do something
     }
 
+    public string GetText(GameObject target, string inText) {
+        return inText;
+    }
+
     public bool Enabled(GameObject target) {
         return true;
     }
